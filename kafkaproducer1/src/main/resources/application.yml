@@ -1,0 +1,24 @@
+spring: 
+  kafka:
+    template:
+      default-topic: UserEventsTopic-1
+    producer:
+      bootstrap-servers: localhost:9093
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      ssl:
+        trust-store-location: file:E:\softwares\java\jdk1.8.0_25\bin\client.truststore.jks
+        trust-store-password: password
+        trust-store-type: JKS
+        key-store-location: file:E:\softwares\java\jdk1.8.0_25\bin\client.keystore.jks
+        key-store-password: password
+      properties:
+         security:
+          protocol: SSL
+         ssl.endpoint.identification.algorithm: 
+    admin:
+      properties:
+        bootstrap.servers: localhost:9093  
+  
+server:
+  port: 8084    
